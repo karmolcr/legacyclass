@@ -26,19 +26,19 @@ public class FizzBuzzTest {
         return Arrays.asList(new Object[][] {
                 {1, "1"},
                 {2, "2"},
-                {3, "Fizz"},
+                {3, FizzBuzz.FIZZ},
                 {4, "4"},
-                {5, "Buzz"},
-                {6, "Fizz"},
-                {7,"7"},
-                {8,"8"},
-                {9,"Fizz"},
-                {10,"Buzz"},
-                {11,"11"},
-                {12,"Fizz"},
-                {13,"13"},
-                {14,"14"},
-                {15,"FizzBuzz"}
+                {5, FizzBuzz.BUZZ},
+                {6, FizzBuzz.FIZZ},
+                {7, "7"},
+                {8, "8"},
+                {9, FizzBuzz.FIZZ},
+                {10, FizzBuzz.BUZZ},
+                {11, "11"},
+                {12, FizzBuzz.FIZZ},
+                {13, "13"},
+                {14, "14"},
+                {15, FizzBuzz.FIZZBUZZ}
         });
     }
 
