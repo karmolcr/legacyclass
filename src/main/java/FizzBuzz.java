@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.List;
+
 public class FizzBuzz {
 
     public static final String FIZZ = "Fizz";
@@ -7,20 +10,22 @@ public class FizzBuzz {
     public String answer(int input) {
 
 
-        Rule fizzBuzzRule = new FizzBuzzRule();
-        Rule fizzRule = new FizzRule();
-        Rule buzzRule = new BuzzRule();
+        Rule rule_01 = new FizzBuzzRule();
+        Rule rule_02 = new FizzRule();
+        Rule rule_03 = new BuzzRule();
 
-        if(fizzBuzzRule.isAnswer(input)){
-            return fizzBuzzRule.getAnswer();
+        List<Rule> rules = Arrays.asList(rule_01, rule_02, rule_03);
+
+        if(rules.get(0).isAnswer(input)){
+            return rules.get(0).getAnswer();
         }
 
-        if(fizzRule.isAnswer(input)){
-            return fizzRule.getAnswer();
+        if(rules.get(1).isAnswer(input)){
+            return rules.get(1).getAnswer();
         }
 
-        if(buzzRule.isAnswer(input)){
-            return buzzRule.getAnswer();
+        if(rules.get(2).isAnswer(input)){
+            return rules.get(2).getAnswer();
         }
         return Integer.toString(input);
     }
