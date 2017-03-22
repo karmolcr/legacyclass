@@ -26,7 +26,9 @@ public class FizzBuzzTest {
         return Arrays.asList(new Object[][] {
                 { 1, "1" },
                 { 2, "2" },
-                { 3, "Fizz" }
+                { 3, "Fizz" },
+                { 4, "4"},
+                { 5, "Buzz"}
         });
     }
 
