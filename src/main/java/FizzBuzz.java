@@ -5,15 +5,27 @@ public class FizzBuzz {
     public static final String FIZZBUZZ = "FizzBuzz";
 
     public String answer(int input) {
-        if(input%15 == 0){
+        if(isAFizzBuzz(input)){
             return FIZZBUZZ;
         }
-        if(input%3 == 0){
+        if(isAFizz(input)){
             return FIZZ;
         }
-        if(input%5 == 0){
+        if(isABuzz(input)){
             return BUZZ;
         }
         return Integer.toString(input);
+    }
+
+    private boolean isAFizzBuzz(int input) {
+        return isAFizz(input) && isABuzz(input);
+    }
+
+    private boolean isABuzz(int input) {
+        return input%5 == 0;
+    }
+
+    private boolean isAFizz(int input) {
+        return input%3 == 0;
     }
 }
