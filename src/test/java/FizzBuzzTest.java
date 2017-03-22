@@ -22,7 +22,7 @@ public class FizzBuzzTest {
     }
 
     @Parameterized.Parameters
-    public static Collection intitalParam() {
+    public static Collection parameterSet() {
         return Arrays.asList(new Object[][] {
                 { 1, "1" },
                 { 2, "2" }
