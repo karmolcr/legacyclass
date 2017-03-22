@@ -7,15 +7,18 @@ public class FizzBuzz {
     public String answer(int input) {
 
 
-        FizzBuzzRule fizzBuzzRule = new FizzBuzzRule();
+        Rule fizzBuzzRule = new FizzBuzzRule();
+        Rule fizzRule = new FizzRule();
+        Rule buzzRule = new BuzzRule();
+
         if(fizzBuzzRule.isAnswer(input)){
             return fizzBuzzRule.getAnswer();
         }
-        FizzRule fizzRule = new FizzRule();
+
         if(fizzRule.isAnswer(input)){
             return fizzRule.getAnswer();
         }
-        BuzzRule buzzRule = new BuzzRule();
+
         if(buzzRule.isAnswer(input)){
             return buzzRule.getAnswer();
         }
