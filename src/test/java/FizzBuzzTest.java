@@ -25,7 +25,8 @@ public class FizzBuzzTest {
     public static Collection parameterSet() {
         return Arrays.asList(new Object[][] {
                 { 1, "1" },
-                { 2, "2" }
+                { 2, "2" },
+                { 3, "Fizz" }
         });
     }
 
