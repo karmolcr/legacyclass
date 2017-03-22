@@ -6,14 +6,18 @@ public class FizzBuzz {
     public static final String FIZZ = "Fizz";
     public static final String BUZZ = "Buzz";
     public static final String FIZZBUZZ = "FizzBuzz";
+    private List<Rule> rules;
+
+    FizzBuzz(List<Rule> rules){
+        this.rules = rules;
+    }
 
     public String answer(int input) {
 
 
-        List<Rule> rules = Arrays.asList(new FizzBuzzRule(), new FizzRule(), new BuzzRule());
 
         for (Rule rule:
-             rules) {
+                rules) {
             if(rule.isAnswer(input)){
                 return rule.getAnswer();
             }

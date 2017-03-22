@@ -8,6 +8,6 @@ public class FizzBuzzRule implements Rule {
     }
     @Override
     public String getAnswer() {
-        return "FizzBuzz";
+        return FizzBuzz.FIZZBUZZ;
     }
 }

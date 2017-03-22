@@ -4,6 +4,6 @@ public class FizzRule implements Rule{
     }
 
     public String getAnswer() {
-        return "Fizz";
+        return FizzBuzz.FIZZ;
     }
 }

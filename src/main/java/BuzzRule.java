@@ -4,6 +4,6 @@ public class BuzzRule implements Rule {
     }
 
     public String getAnswer() {
-        return "Buzz";
+        return FizzBuzz.BUZZ;
     }
 }
