@@ -5,27 +5,21 @@ public class FizzBuzz {
     public static final String FIZZBUZZ = "FizzBuzz";
 
     public String answer(int input) {
-        if(isAFizzBuzz(input)){
-            return FIZZBUZZ;
+
+
+        FizzBuzzRule fizzBuzzRule = new FizzBuzzRule();
+        if(fizzBuzzRule.isAnswer(input)){
+            return fizzBuzzRule.getAnswer();
         }
-        if(isAFizz(input)){
-            return FIZZ;
+        FizzRule fizzRule = new FizzRule();
+        if(fizzRule.isAnswer(input)){
+            return fizzRule.getAnswer();
         }
-        if(isABuzz(input)){
-            return BUZZ;
+        BuzzRule buzzRule = new BuzzRule();
+        if(buzzRule.isAnswer(input)){
+            return buzzRule.getAnswer();
         }
         return Integer.toString(input);
     }
 
-    private boolean isAFizzBuzz(int input) {
-        return isAFizz(input) && isABuzz(input);
-    }
-
-    private boolean isABuzz(int input) {
-        return input%5 == 0;
-    }
-
-    private boolean isAFizz(int input) {
-        return input%3 == 0;
-    }
 }
