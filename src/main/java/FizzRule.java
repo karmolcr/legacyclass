@@ -1,4 +1,4 @@
-public class FizzRule {
+public class FizzRule implements Rule{
     public boolean isAnswer(int input) {
         return input%3 == 0;
     }

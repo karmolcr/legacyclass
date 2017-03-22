@@ -1,4 +1,4 @@
-public class BuzzRule extends FizzBuzz {
+public class BuzzRule implements Rule {
     public boolean isAnswer(int input) {
         return input%5 == 0;
     }
