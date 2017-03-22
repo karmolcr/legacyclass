@@ -24,11 +24,12 @@ public class FizzBuzzTest {
     @Parameterized.Parameters
     public static Collection parameterSet() {
         return Arrays.asList(new Object[][] {
-                { 1, "1" },
-                { 2, "2" },
-                { 3, "Fizz" },
-                { 4, "4"},
-                { 5, "Buzz"}
+                {1, "1"},
+                {2, "2"},
+                {3, "Fizz"},
+                {4, "4"},
+                {5, "Buzz"},
+                {6, "Fizz"}
         });
     }
 
