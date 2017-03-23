@@ -6,18 +6,12 @@ public class MailService {
 
     private final SenderAccount senderAccount;
     private final SMTPConfiguration smtpConfiguration;
-    private String RECIPIENT = "karmolcr@gmail.com";
+    private final MailContent mailContent;
 
-    private String[] to; // list of recipient email addresses
-    private String subject;
-    private String body;
-
-    public MailService(SenderAccount senderAccount, SMTPConfiguration smtpConfiguration) {
+    public MailService(SenderAccount senderAccount, SMTPConfiguration smtpConfiguration, MailContent mailContent) {
         this.smtpConfiguration = smtpConfiguration;
         this.senderAccount = new SenderAccount();
-        this.to = new String[]{ this.RECIPIENT };
-        this.subject = "Java send mail example";
-        this.body = "Welcome to JavaMail!";
+        this.mailContent = mailContent;
     }
 
     public void sendMail() {
@@ -28,19 +22,19 @@ public class MailService {
 
         try {
             message.setFrom(new InternetAddress(senderAccount.USER_NAME));
-            InternetAddress[] toAddress = new InternetAddress[to.length];
+            InternetAddress[] toAddress = new InternetAddress[mailContent.to.length];
 
             // To get the array of addresses
-            for(int i = 0; i < to.length; i++ ) {
-                toAddress[i] = new InternetAddress(to[i]);
+            for(int i = 0; i < mailContent.to.length; i++ ) {
+                toAddress[i] = new InternetAddress(mailContent.to[i]);
             }
 
             for( int i = 0; i < toAddress.length; i++) {
                 message.addRecipient(Message.RecipientType.TO, toAddress[i]);
             }
 
-            message.setSubject(subject);
-            message.setText(body);
+            message.setSubject(mailContent.subject);
+            message.setText(mailContent.body);
             Transport transport = session.getTransport("smtp");
             transport.connect(smtpConfiguration.host, senderAccount.USER_NAME, senderAccount.PASSWORD);
             transport.sendMessage(message, message.getAllRecipients());
