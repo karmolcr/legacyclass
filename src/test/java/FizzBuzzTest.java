@@ -45,7 +45,7 @@ public class FizzBuzzTest {
 
     @Before
     public void setup(){
-        List<Rule> rules = Arrays.asList(new FizzBuzzRule(), new FizzRule(), new BuzzRule(), new EchoRule());
+        List<Rule> rules = Arrays.asList(new EchoRule(), new FizzRule(), new BuzzRule(), new FizzBuzzRule());
         game = new FizzBuzz(rules);
     }
     @Test
