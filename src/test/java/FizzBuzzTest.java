@@ -5,6 +5,7 @@ import org.junit.runners.Parameterized;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 import static junit.framework.Assert.assertEquals;
 
@@ -44,7 +45,8 @@ public class FizzBuzzTest {
 
     @Before
     public void setup(){
-        game = new FizzBuzz();
+        List<Rule> rules = Arrays.asList(new FizzBuzzRule(), new FizzRule(), new BuzzRule(), new EchoRule());
+        game = new FizzBuzz(rules);
     }
     @Test
     public void checkAnswer(){

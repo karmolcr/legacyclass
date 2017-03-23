@@ -14,16 +14,16 @@ public class FizzBuzz {
 
     public String answer(int input) {
 
-
+        String answer = null;
 
         for (Rule rule:
                 rules) {
             if(rule.isAnswer(input)){
-                return rule.getAnswer();
+                answer = rule.getAnswer();
             }
         }
 
-        return Integer.toString(input);
+        return answer;
     }
 
 }
