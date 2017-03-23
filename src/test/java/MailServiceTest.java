@@ -12,8 +12,8 @@ public class MailServiceTest {
         greenMail.start();
 
         SenderAccount senderAccount = new SenderAccount();
-        SMTPConfiguration smtpConfiguration = new SMTPConfiguration();
-        MailService mailService = new MailService("localhost","3025",senderAccount , smtpConfiguration);
+        SMTPConfiguration smtpConfiguration = new SMTPConfiguration("localhost","3025");
+        MailService mailService = new MailService(senderAccount , smtpConfiguration);
         mailService.sendMail();
 
         assertEquals("Welcome to JavaMail!", GreenMailUtil.getBody(greenMail.getReceivedMessages()[0]));
