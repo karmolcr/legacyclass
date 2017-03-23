@@ -15,26 +15,12 @@ public class MailService {
     }
 
     public void sendMail() {
-        Properties props = getMailProperties();
-
-        Session session = Session.getDefaultInstance(props);
-        MimeMessage message = new MimeMessage(session);
 
         try {
-            message.setFrom(new InternetAddress(senderAccount.USER_NAME));
-            InternetAddress[] toAddress = new InternetAddress[mailContent.to.length];
+            Session session = getSession();
 
-            // To get the array of addresses
-            for(int i = 0; i < mailContent.to.length; i++ ) {
-                toAddress[i] = new InternetAddress(mailContent.to[i]);
-            }
+            MimeMessage message = getMimeMessage(session);
 
-            for( int i = 0; i < toAddress.length; i++) {
-                message.addRecipient(Message.RecipientType.TO, toAddress[i]);
-            }
-
-            message.setSubject(mailContent.subject);
-            message.setText(mailContent.body);
             Transport transport = session.getTransport("smtp");
             transport.connect(smtpConfiguration.host, senderAccount.USER_NAME, senderAccount.PASSWORD);
             transport.sendMessage(message, message.getAllRecipients());
@@ -46,6 +32,29 @@ public class MailService {
         catch (MessagingException me) {
             me.printStackTrace();
         }
+    }
+
+    private Session getSession() {
+        Properties props = getMailProperties();
+        return Session.getDefaultInstance(props);
+    }
+
+    private MimeMessage getMimeMessage(Session session) throws MessagingException {
+        InternetAddress[] toAddress = new InternetAddress[mailContent.to.length];
+        // To get the array of addresses
+        for(int i = 0; i < mailContent.to.length; i++ ) {
+            toAddress[i] = new InternetAddress(mailContent.to[i]);
+        }
+
+        MimeMessage message = new MimeMessage(session);
+        message.setFrom(new InternetAddress(senderAccount.USER_NAME));
+        for( int i = 0; i < toAddress.length; i++) {
+            message.addRecipient(Message.RecipientType.TO, toAddress[i]);
+        }
+
+        message.setSubject(mailContent.subject);
+        message.setText(mailContent.body);
+        return message;
     }
 
 
